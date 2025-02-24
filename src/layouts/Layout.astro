@@ -1,3 +1,9 @@
+---
+ 	import './src/styles/global.css';
+
+	const { title } = Astro.props;
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
@@ -5,18 +11,30 @@
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{ title }</title>
 	</head>
 	<body>
 		<slot />
+		<script src="../../node_modules/vanilla-tilt/src/vanilla-tilt.js"></script>
 	</body>
 </html>
 
-<style>
+<style lang="scss">
 	html,
 	body {
 		margin: 0;
 		width: 100%;
 		height: 100%;
+		color-scheme: light dark;
+
+		p, small, span, h1, h2, h3 , h4, h5, h6, blockquote, textarea, input, button, a, strong, i, b, u {
+			margin: 0;
+			padding: 0;
+		}
+		.container {
+			width: 90%;
+			max-width: 1440px;
+			margin: auto;
+		}
 	}
 </style>

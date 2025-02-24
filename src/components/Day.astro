@@ -1,0 +1,48 @@
+---
+  import VanillaTilt from 'vanilla-tilt';
+  const { srcImage, srcCodepen, srcName, srcDay  } = Astro.props;
+---
+
+<div class="thumbnail" data-day={srcDay} data-tilt data-tilt-glare data-tilt-max-glare=".5">
+  <img src={srcImage} alt={srcName} title={srcName}>
+  <a href={srcCodepen} title={srcName} target="_blank"></a>
+</div>
+
+<style lang="scss">
+  .thumbnail {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      img {
+        transform: scale(1.0125);
+      }
+    }
+    
+    img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      transition: ease-in-out .2s all;
+    }
+
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      transition: ease .3s all;
+
+      &:hover {
+        background-color: rgba(0,0,0,.5);
+      }
+    }
+  }
+</style>
+
+
